@@ -1526,6 +1526,7 @@ footer p:first-child {
     cursor: grab;
 }
 
+
 .hero-image-viewport:active {
     cursor: grabbing;
 }
@@ -1536,12 +1537,17 @@ footer p:first-child {
     left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;;
     transform: translate(-50%, -50%);
     transform-origin: center center;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     user-select: none;
     pointer-events: none; /* allows clicks to pass through to viewport double-click */
+}
+
+/* activated after user interaction */
+.route-map-img.interacted {
+    object-fit: contain;
 }
 
 .zoom-controls {
@@ -2081,3 +2087,4 @@ section {
         grid-template-columns: 1fr;
     }
 }
+

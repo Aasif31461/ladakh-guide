@@ -496,6 +496,7 @@ let baseRouteLine;
 let activeDayRouteHighlight;
 let markersMap = {};
 
+
 function initMap() {
     map = L.map('leaflet-map', {
         zoomControl: true,
@@ -572,7 +573,7 @@ function initMap() {
             </div>
             <div class="popup-desc">Key point on the Ladakh Expedition Circuit.</div>
         `);
-        
+
         markersMap[wp.name] = marker;
     });
 
@@ -599,7 +600,7 @@ function initMap() {
 
 function highlightDayRoute(day) {
     if (!map) return;
-    
+
     // Clear previous highlight
     if (activeDayRouteHighlight) {
         map.removeLayer(activeDayRouteHighlight);
@@ -614,7 +615,7 @@ function highlightDayRoute(day) {
 
     // Draw active highlight path connecting detailed GPS coordinates
     let points = [dayInfo.startCoord, dayInfo.endCoord];
-    
+
     // Day-specific detailed tracks using coordinate subsets
     if (day === 1) { // Delhi to Patnitop
         points = detailedGPSRoute.slice(0, 15).concat([[33.0864, 75.3283]]);
@@ -652,8 +653,8 @@ function highlightDayRoute(day) {
 
     // Open popups for endpoints (more robust matching)
     const endPointName = dayInfo.to.toLowerCase();
-    let markerKey = Object.keys(markersMap).find(key => 
-        endPointName.includes(key.toLowerCase()) || 
+    let markerKey = Object.keys(markersMap).find(key =>
+        endPointName.includes(key.toLowerCase()) ||
         key.toLowerCase().includes(endPointName.split(" ")[0])
     );
     const marker = markerKey ? markersMap[markerKey] : null;
@@ -669,7 +670,7 @@ function initChecklist() {
     // Load from local storage or set defaults
     const stored = localStorage.getItem('ladakh_checklist');
     let needsReset = false;
-    
+
     if (stored) {
         try {
             checklistItems = JSON.parse(stored);
@@ -679,11 +680,11 @@ function initChecklist() {
                     needsReset = true;
                 }
             });
-        } catch(e) {
+        } catch (e) {
             needsReset = true;
         }
     }
-    
+
     if (!stored || needsReset) {
         checklistItems = JSON.parse(JSON.stringify(checklistCategories));
         localStorage.setItem('ladakh_checklist', JSON.stringify(checklistItems));
@@ -723,7 +724,7 @@ function renderChecklist(category = 'all') {
 function toggleChecklistItem(category, index) {
     checklistItems[category][index].checked = !checklistItems[category][index].checked;
     localStorage.setItem('ladakh_checklist', JSON.stringify(checklistItems));
-    
+
     // Rerender active view
     const activeTab = document.querySelector('.chk-tab.active');
     const activeCategory = activeTab ? activeTab.dataset.cat : 'all';
@@ -739,7 +740,7 @@ function updateOverallProgress() {
         // Update individual category headers with counters in tab buttons
         let catTotal = 0;
         let catChecked = 0;
-        
+
         checklistItems[cat].forEach(item => {
             totalItems++;
             catTotal++;
@@ -748,7 +749,7 @@ function updateOverallProgress() {
                 catChecked++;
             }
         });
-        
+
         const tabBtn = document.querySelector(`.chk-tab[data-cat="${cat}"]`);
         if (tabBtn) {
             const baseText = cat.charAt(0).toUpperCase() + cat.slice(1);
@@ -777,14 +778,14 @@ function selectDay(dayNum) {
 
     // Render general day metadata
     document.getElementById('itinerary-day-title').innerHTML = `Day ${dayData.day} <span style="font-size: 14px; font-weight: normal; color: var(--text-secondary);">(${dayData.date})</span>`;
-    
+
     // Build route headers without Google Maps location badges
     document.getElementById('itinerary-day-route').innerHTML = `
         <span>${dayData.from}</span>
         <span style="margin: 0 8px; color: var(--text-muted);">➔</span>
         <span>${dayData.to}</span>
     `;
-    
+
     document.getElementById('itinerary-day-dist').innerText = `${dayData.dist} km`;
     document.getElementById('itinerary-day-time').innerText = dayData.time;
     document.getElementById('itinerary-day-summary').innerText = dayData.summary;
@@ -802,7 +803,7 @@ function selectDay(dayNum) {
     dayData.schedule.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'schedule-item';
-        
+
         itemDiv.innerHTML = `
             <div class="schedule-time">${item.time}</div>
             <div class="schedule-desc">${item.desc}</div>
@@ -825,7 +826,7 @@ function renderPetrolPumpTable(searchQuery = '') {
     const tableBody = document.getElementById('petrol-table-body');
     tableBody.innerHTML = '';
 
-    const filtered = petrolPumps.filter(pump => 
+    const filtered = petrolPumps.filter(pump =>
         pump.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         pump.notes.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -833,7 +834,7 @@ function renderPetrolPumpTable(searchQuery = '') {
     filtered.forEach(pump => {
         const tr = document.createElement('tr');
         const severityClass = pump.severity === 'high' ? 'severity-high' : (pump.severity === 'med' ? 'severity-med' : 'severity-low');
-        
+
         tr.innerHTML = `
             <td style="font-weight:600; color: var(--text-primary);">
                 <div class="table-loc-wrapper">
@@ -872,7 +873,7 @@ function switchMainTab(tabName) {
 // 7. Initial Countdown
 function initCountdown() {
     const targetDate = new Date("June 8, 2026 06:00:00").getTime();
-    
+
     function updateCountdown() {
         const now = new Date().getTime();
         const diff = targetDate - now;
@@ -898,13 +899,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     initMap();
     initChecklist();
-    
+
     // Day Selection listeners
     document.querySelectorAll('.day-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const dayNum = parseInt(btn.dataset.day);
             selectDay(dayNum);
-            
+
             // Add custom active styles for critical timeline buttons
             document.querySelectorAll('.day-btn').forEach(b => {
                 b.classList.remove('critical-active');
@@ -926,7 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset Checklist Button
     document.getElementById('reset-checklist-btn').addEventListener('click', () => {
-        if(confirm("Are you sure you want to reset your packing checklist?")) {
+        if (confirm("Are you sure you want to reset your packing checklist?")) {
             localStorage.removeItem('ladakh_checklist');
             initChecklist();
         }
@@ -956,6 +957,31 @@ function initInteractiveMapImage() {
     const btnIn = document.getElementById('btn-zoom-in');
     const btnOut = document.getElementById('btn-zoom-out');
     const btnReset = document.getElementById('btn-zoom-reset');
+
+    // fix by kamal start
+
+    const mapImg = document.getElementById("interactive-route-map");
+
+    let zoomLevel = 1;
+
+    function activateInteractiveMode() {
+        mapImg.classList.add("interacted");
+    }
+
+    document.getElementById("btn-zoom-in").addEventListener("click", () => {
+        activateInteractiveMode();
+    });
+
+    document.getElementById("btn-zoom-out").addEventListener("click", () => {
+        activateInteractiveMode();
+    });
+
+    document.getElementById("btn-zoom-reset").addEventListener("click", () => {
+        /* optional: go back to cover mode */
+        mapImg.classList.remove("interacted");
+    });
+
+    // fix by kamal end
 
     if (!viewport || !img) return;
 
