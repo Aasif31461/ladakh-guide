@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0284c7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cbd5e1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ea580c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ca8a04;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Ring and Background Sky -->
+  <circle cx="256" cy="256" r="240" fill="url(#skyGrad)" stroke="#e2e8f0" stroke-width="8" />
+  
+  <!-- Compass Lines -->
+  <line x1="256" y1="16" x2="256" y2="496" stroke="rgba(255, 255, 255, 0.1)" stroke-width="4" stroke-dasharray="10 10" />
+  <line x1="16" y1="256" x2="496" y2="256" stroke="rgba(255, 255, 255, 0.1)" stroke-width="4" stroke-dasharray="10 10" />
+  
+  <!-- Golden Sun Rising -->
+  <circle cx="360" cy="180" r="45" fill="#fef9c3" opacity="0.85" filter="drop-shadow(0 0 12px #ca8a04)" />
+
+  <!-- Far Mountains (Dark Silhouette) -->
+  <path d="M60 400 L180 260 L240 320 L360 180 L460 400 Z" fill="#1e293b" opacity="0.8" />
+
+  <!-- Snow Peaks -->
+  <path d="M90 400 L210 230 L270 290 L390 150 L450 400 Z" fill="url(#mountainGrad)" />
+  
+  <!-- Snow Cap highlights -->
+  <path d="M210 230 L230 260 L195 265 Z" fill="#ffffff" />
+  <path d="M390 150 L410 190 L370 195 Z" fill="#ffffff" />
+  
+  <!-- Road Stretching to Horizon -->
+  <path d="M256 320 L160 450 L352 450 Z" fill="#0f172a" />
+  <path d="M256 320 L256 450" stroke="#ca8a04" stroke-width="6" stroke-dasharray="12 12" />
+
+  <!-- Motorcycle silhouette / badge -->
+  <g transform="translate(196, 360) scale(0.24)" fill="url(#accentGrad)">
+    <path d="M100 150 C100 122, 122 100, 150 100 C178 100, 200 122, 200 150 C200 178, 178 200, 150 200 C122 200, 100 178, 100 150 Z" />
+    <circle cx="150" cy="150" r="35" fill="#0f172a" />
+    <path d="M300 150 C300 122, 322 100, 350 100 C378 100, 400 122, 400 150 C400 178, 378 200, 350 200 C322 200, 300 178, 300 150 Z" />
+    <circle cx="350" cy="150" r="35" fill="#0f172a" />
+    <path d="M150 150 L200 90 L280 90 L350 150 L280 150 L220 150 Z" stroke="url(#accentGrad)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M220 70 L280 70" stroke="#ffffff" stroke-width="15" stroke-linecap="round" />
+  </g>
+</svg>
