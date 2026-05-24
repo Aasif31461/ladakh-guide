@@ -5,21 +5,21 @@
 const itineraryData = [
     {
         day: 1,
-        date: "Mon, 8 Jun 2026",
-        from: "Delhi",
+        date: "Mon, 6 Jun 2026",
+        from: "Shamli",
         to: "Patnitop",
-        dist: 630,
-        time: "11 hrs",
+        dist: 581,
+        time: "12 hrs",
         startCoord: [28.6139, 77.2090],
         endCoord: [33.0864, 75.3283],
         summary: "Long flat highway ride exiting Delhi. Starting of the climb towards Patnitop in Jammu.",
         schedule: [
-            { time: "06:00 AM", desc: "Depart Delhi (make sure fuel tank is filled before starting)", loc: "Delhi" },
-            { time: "08:30 AM", desc: "Ambala (~200 km) – Fuel & Breakfast stop", loc: "Ambala" },
-            { time: "11:00 AM", desc: "Jalandhar (~400 km) – Quick stretch and hydration break", loc: "Jalandhar" },
-            { time: "12:30 PM", desc: "Pathankot (~480 km) – Fuel + Lunch", loc: "Pathankot" },
-            { time: "02:30 PM", desc: "Udhampur (~580 km) – Fuel stop (last big town before mountains)", loc: "Udhampur" },
-            { time: "04:30 PM", desc: "Patnitop (~630 km) – Arrive & settle at stay", loc: "Patnitop" }
+            { time: "06:00 AM", desc: "Depart Shamli (make sure fuel tank is filled before starting)", loc: "Delhi" },
+            { time: "11:30 AM", desc: "Ludhiana (~230 km) – Quick stretch and hydration", loc: "Ambala" },
+            { time: "01:00 PM", desc: "Jalandhar (~300 km) – Fuel & Lunch break", loc: "Jalandhar" },
+            { time: "05:00 PM", desc: "Pathankot (~410 km) – Tea stop", loc: "Pathankot" },
+            { time: "08:00 PM", desc: "Udhampur (~540 km) – Fuel stop (last big town before mountains)", loc: "Udhampur" },
+            { time: "09:30 PM", desc: "Patnitop (~581 km) – Arrive & settle at stay", loc: "Patnitop" }
         ],
         fuelStops: "Delhi (fill full) → Ambala → Jalandhar → Pathankot (fill) → Udhampur (fill)",
         stay: "Hotel/Guesthouse in Patnitop (~1,800 m) - Budget ₹600-1200 per room. Camping near Patnitop meadows is also possible under clear skies.",
@@ -30,7 +30,7 @@ const itineraryData = [
     },
     {
         day: 2,
-        date: "Tue, 9 Jun 2026",
+        date: "Tue, 7 Jun 2026",
         from: "Patnitop",
         to: "Srinagar",
         dist: 180,
@@ -55,7 +55,7 @@ const itineraryData = [
     },
     {
         day: 3,
-        date: "Wed, 10 Jun 2026",
+        date: "Wed, 8 Jun 2026",
         from: "Srinagar",
         to: "Kargil",
         dist: 205,
@@ -80,7 +80,7 @@ const itineraryData = [
     },
     {
         day: 4,
-        date: "Thu, 11 Jun 2026",
+        date: "Thu, 9 Jun 2026",
         from: "Kargil",
         to: "Leh",
         dist: 220,
@@ -105,7 +105,7 @@ const itineraryData = [
     },
     {
         day: 5,
-        date: "Fri, 12 Jun 2026",
+        date: "Fri, 10 Jun 2026",
         from: "Leh",
         to: "Leh (Rest Day)",
         dist: 0,
@@ -131,7 +131,7 @@ const itineraryData = [
     },
     {
         day: 6,
-        date: "Sat, 13 Jun 2026",
+        date: "Sat, 11 Jun 2026",
         from: "Leh",
         to: "Turtuk (via Khardung La)",
         dist: 210,
@@ -156,7 +156,7 @@ const itineraryData = [
     },
     {
         day: 7,
-        date: "Sun, 14 Jun 2026",
+        date: "Sun, 12 Jun 2026",
         from: "Turtuk",
         to: "Pangong Tso (via Shyok Valley)",
         dist: 230,
@@ -181,7 +181,7 @@ const itineraryData = [
     },
     {
         day: 8,
-        date: "Mon, 15 Jun 2026",
+        date: "Mon, 13 Jun 2026",
         from: "Pangong Tso",
         to: "Hanle (via Chushul, Nyoma)",
         dist: 215,
@@ -207,7 +207,7 @@ const itineraryData = [
     },
     {
         day: 9,
-        date: "Tue, 16 Jun 2026",
+        date: "Tue, 14 Jun 2026",
         from: "Hanle",
         to: "Umling La & back → Nyoma",
         dist: 160,
@@ -232,7 +232,7 @@ const itineraryData = [
     },
     {
         day: 10,
-        date: "Wed, 17 Jun 2026",
+        date: "Wed, 15 Jun 2026",
         from: "Nyoma",
         to: "Tso Moriri (via Mahe)",
         dist: 110,
@@ -257,7 +257,7 @@ const itineraryData = [
     },
     {
         day: 11,
-        date: "Thu, 18 Jun 2026",
+        date: "Thu, 16 Jun 2026",
         from: "Tso Moriri",
         to: "Sarchu (via Pang, NH-3)",
         dist: 165,
@@ -283,7 +283,7 @@ const itineraryData = [
     },
     {
         day: 12,
-        date: "Fri, 19 Jun 2026",
+        date: "Fri, 17 Jun 2026",
         from: "Sarchu",
         to: "Manali (via Atal Tunnel)",
         dist: 230,
@@ -308,7 +308,7 @@ const itineraryData = [
     },
     {
         day: 13,
-        date: "Sat, 20 Jun 2026",
+        date: "Sat, 18 Jun 2026",
         from: "Manali",
         to: "Delhi",
         dist: 530,
